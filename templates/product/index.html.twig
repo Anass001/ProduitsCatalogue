@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produits{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mt-5 mb-2">
+            <h1>Produits</h1>
+            <a href="{{ path('app_product_new') }}" class="btn btn-primary">Ajouter un produit</a>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Catégorie</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.category.name }}</td>
+                    <td>
+                        {#                        <a href="{{ path('edit_product', {id: product.id}) }}" class="btn btn-sm btn-primary">Edit</a> #}
+                        <a href="{{ path('app_product_delete', {id: product.id}) }}" class="btn btn-sm btn-danger"
+                           onclick="return confirm('Voulez-vous vraiment supprimer ce produit?')">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
