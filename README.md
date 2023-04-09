@@ -14,7 +14,6 @@ $ composer install
 ```
 
 ## Usage
------
 
 There's no need to configure anything before running the application. There are
 2 different ways of running this application depending on your needs:
